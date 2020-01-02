@@ -1,0 +1,46 @@
+{
+  "webui":{
+    "title": "",
+    "listen_port": ,
+    "session_name": "",
+    "session_secret": "",
+    "version": ""
+  },
+  "template_no_cache": false,
+  "mysql":{
+    "host": "",
+    "database": "",
+    "user": "",
+    "password": "",
+    "selective_max_statement_time": 0
+  },
+  "laporan":{
+    "akun_kas_kecil": "",
+    "kode_kas_kecil": "",
+    "nama_kas_kecil": "",
+    "akun_kas_utama": "",
+    "kode_kas_utama": "",
+    "nama_kas_utama": ""
+  },
+  "mysql_komodo":{
+    "host": "",
+    "database": "",
+    "user": "",
+    "password": "",
+    "selective_max_statement_time": 0
+  },
+  "daemon": {
+    "urlKomodo": "",
+    "exec_time" : "",
+    "mutation_exec_time" : ""
+  },
+  "penjualan":{
+    "akun_debit": 0,
+    "akun_kredit": 0,
+    "akun_hpp": 0
+  },
+  "perusahaan":{
+    "nama": "",
+    "mengetahui":""
+  }
+}

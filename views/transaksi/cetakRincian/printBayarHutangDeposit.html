@@ -1,0 +1,40 @@
+{% extends 'header_print.html' %}
+{% block content %}
+  <div class="row">
+    <div class="text-center"><b>{{ namaPerusahaan }}</b></div>
+    <div class="text-center">{{ title }}</div>
+    <div class="text-center">Periode {{ periode }}</div>
+  </div>
+  {% for row in rows %}
+  <div class="row" style="margin-left:10px;margin-top:20px;">
+    <div class="cols-sm-12">{{ row.nama_lengkap_member }}</div>
+    <div class="cols-sm-12">{{ row.faktur }}</div>
+  </div>
+  <table id="tableData" class="table table-bordered table-hover table-striped" height="1684px" width="2384px" style="font-size:10px;margin-top:20px">
+    <thead>
+    <tr>
+      <th class="text-center" rowspan="2" style="vertical-align:middle;">Tanggal</th>
+      <th class="text-center" rowspan="2" style="vertical-align:middle;">Keterangan</th>
+      <th class="text-center" rowspan="2" style="vertical-align:middle;">Nominal</th>
+      <th class="text-center" rowspan="2" style="vertical-align:middle;">Admin Entri</th>
+    </tr>
+    </thead>
+    <tbody style="border: none">
+      <tr>
+        <td>{{ row.tglView }}</td>
+        <td>{{ row.keterangan_bayar }}</td>
+        <td class="text-right">{{ -row.nominal_bayar | format_currency }}</td>
+        <td>{{ row.nama_lengkap }}</td>
+      </tr>
+    </tbody>
+  </table>
+  {% endfor %}
+<script>
+
+  window.print();
+  window.addEventListener("afterprint", function(event) {
+    //window.history.go(-1);
+    window.close();
+  });
+</script>
+{% endblock %}

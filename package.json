@@ -1,0 +1,30 @@
+{
+  "name": "komodo-akuntansi",
+  "version": "1.0.0",
+  "description": "Pencatatan Akuntansi Komodo",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@gitlab.kodesumber.com:johny.adji/komodo-akuntansi.git"
+  },
+  "author": "Arif Suwadji",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.19.0",
+    "body-parser": "^1.18.3",
+    "cors": "^2.8.5",
+    "date-and-time": "^0.6.3",
+    "express": "^4.16.4",
+    "express-session": "^1.15.6",
+    "moment": "^2.24.0",
+    "mysql": "^2.16.0",
+    "nunjucks": "^3.1.7",
+    "path": "^0.12.7",
+    "sha1": "^1.1.1",
+    "sweetalert2": "^8.2.6",
+    "uuid": "^3.3.2"
+  }
+}

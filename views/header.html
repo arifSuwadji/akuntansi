@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="icon" href="/img/favicon.ico">
+  <title>Komodo-Akuntansi | {{ title }}</title>
+  <!-- Tell the browser to be responsive to screen width -->
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+  <!-- Bootstrap 3.3.7 -->
+  <link rel="stylesheet" href="/assets/bootstrap/dist/css/bootstrap.min.css">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="/assets/font-awesome/css/font-awesome.min.css">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="/assets/Ionicons/css/ionicons.min.css">
+  <!-- Material Design -->
+  <link rel="stylesheet" href="/plugins/material-design-iconic-font/css/material-design-iconic-font.min.css">
+  <!-- DataTables -->
+  <link rel="stylesheet" href="/assets/datatables.net-bs/css/dataTables.bootstrap.min.css">
+  <!-- Select2 -->
+  <link rel="stylesheet" href="/assets/select2/dist/css/select2.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="/assets/admin-lte/dist/css/AdminLTE.min.css">
+  <!-- AdminLTE Skins. Choose a skin from the css/skins
+       folder instead of downloading all of them to reduce the load. -->
+  <link rel="stylesheet" href="/assets/admin-lte/dist/css/skins/_all-skins.min.css">
+  <!-- Morris chart -->
+  <link rel="stylesheet" href="/assets/morris.js/morris.css">
+  <!-- jvectormap -->
+  <link rel="stylesheet" href="/assets/jvectormap/jquery-jvectormap.css">
+  <!-- Date Picker -->
+  <link rel="stylesheet" href="/assets/bootstrap-datepicker/css/datepicker3.css">
+  <script src="/assets/modernizr/modernizr.js"></script>
+  <!-- Daterange picker -->
+  <link rel="stylesheet" href="/assets/bootstrap-daterangepicker/daterangepicker.css">
+  <!-- bootstrap wysihtml5 - text editor -->
+  <link rel="stylesheet" href="/plugins/bootstrap-wysihtml5/dist/bootstrap3-wysihtml5.min.css">
+  <!-- Google Font -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+  <link rel="stylesheet" href="/sweetalert/dist/sweetalert2.min.css">
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+
+  <!-- Google Font -->
+  <!--link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic"-->
+</head>
+<body class="hold-transition skin-green fixed">
+<div class="wrapper">
+
+  <header class="main-header">
+    <!-- Logo -->
+    <a href="javascript:void(0);" class="logo">
+      <!-- mini logo for sidebar mini 50x50 pixels -->
+      <span class="logo-mini"><b>K</b>MD</span>
+      <!-- logo for regular state and mobile devices -->
+      <span class="logo-lg"><b>Komodo</b>Akuntansi</span>
+    </a>
+    <!-- Header Navbar: style can be found in header.less -->
+    <nav class="navbar navbar-static-top">
+      <!-- Sidebar toggle button-->
+      <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
+        <span class="sr-only">Toggle navigation</span>
+      </a>
+
+      <div class="navbar-custom-menu">
+        <ul class="nav navbar-nav">
+
+          <!-- User Account: style can be found in dropdown.less -->
+          <li class="dropdown user user-menu">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              <!--img src="/assets/admin-lte/dist/img/user2-160x160.jpg" class="user-image" alt="User Image"-->
+              <img src="/img/user-icon2.png" class="user-image" alt="User Image">
+              <span class="hidden-xs">{{sessionUsers.nama_lengkap}}</span>
+            </a>
+            <ul class="dropdown-menu">
+              <!-- User image -->
+              <li class="user-header">
+                <img src="/img/user-icon2.png" class="img-circle" alt="User Image">
+
+                <p>
+                  {{ sessionUsers.nama_lengkap }}
+                  <small>{{ sessionUsers.nama_grup }}</small>
+                </p>
+              </li>
+              <!-- Menu Footer-->
+              <li class="user-footer">
+                <div class="pull-right">
+                  <a href="/login/out" class="btn btn-default btn-flat">Sign out</a>
+                </div>
+              </li>
+            </ul>
+          </li>
+          <!-- Control Sidebar Toggle Button -->
+          <!--li>
+            <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
+          </li-->
+        </ul>
+      </div>
+    </nav>
+  </header>
+  {% include 'menu.html'%}
+  {% block content %}
+  {% endblock %}
+  {% include 'footer.html' %}

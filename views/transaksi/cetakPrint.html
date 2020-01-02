@@ -1,0 +1,47 @@
+{% extends 'header_print.html' %}
+{% block content %}
+  <div class="row">
+    <div class="text-center"><b>{{ namaPerusahaan }}</b></div>
+    <div class="text-center">{{ title }}</div>
+    <div class="text-center">Periode {{ periode }}</div>
+  </div>
+  <table id="tableData" class="table table-bordered table-hover table-striped" height="1684px" width="2384px" style="font-size:10px;margin-top:20px">
+    <thead>
+    <tr>
+      <th class="text-center" rowspan="2" style="vertical-align:middle;">Tanggal</th>
+      <th class="text-center" rowspan="2" style="vertical-align:middle;">Faktur</th>
+      <th class="text-center" rowspan="2" style="vertical-align:middle;">Keterangan</th>
+      <th class="text-center" colspan="2">Akun Perkiraan</th>
+      <th class="text-center" rowspan="2" style="vertical-align:middle;">Debit</th>
+      <th class="text-center" rowspan="2" style="vertical-align:middle;">Kredit</th>
+    </tr>
+    <tr>
+      <th class="text-center">Kode Akun</th>
+      <th class="text-center">Nama Akun</th>
+    </tr>
+    </thead>
+    <tbody style="border: none">
+      {% for row in rows %}
+      <tr>
+        {% if not tgl %}<td rowspan="{{ count }}">{{ row.tglView }}</td>{% endif %}
+        {% if not faktur %}<td rowspan="{{ count }}">{{ row.faktur }}</td>{% endif %}
+        {% if not faktur %}<td rowspan="{{ count }}">{{ row.keterangan }}</td>{% endif %}
+        <td>{{ row.kode_akun }}</td>
+        <td>{{ row.nama_akun }}</td>
+        <td class="text-right">{% if row.debit %} {{ row.debit | format_currency }} {% else %} {{ '' }} {% endif %}</td>
+        <td class="text-right">{% if row.kredit %} {{ row.kredit | format_currency }} {% else %} {{ ''}} {% endif %}</td>
+      </tr>
+      {% set tgl = row.tglView %}
+      {% set faktur = row.faktur %}
+      {% endfor %}
+    </tbody>
+  </table>
+<script>
+
+  window.print();
+  window.addEventListener("afterprint", function(event) {
+    //window.history.go(-1);
+    window.close();
+  });
+</script>
+{% endblock %}

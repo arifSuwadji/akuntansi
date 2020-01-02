@@ -1,0 +1,148 @@
+{% extends 'header.html' %}
+
+{% block content %}
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <h1>
+        Transaksi
+        <small>{{ title }}</small>
+      </h1>
+      <ol class="breadcrumb">
+        <li><a href="javascript:void(0);"><i class="zmdi zmdi-accounts-alt"></i> Transaksi</a></li>
+        <li class="active">{{ title }}</li>
+      </ol>
+    </section>
+    <!-- Main content -->
+    <section class="content">
+      <div class="row" style="align:center;">
+        <!-- right column -->
+        <div class="col-md-12">
+          <!-- Horizontal Form -->
+          <div class="box box-info">
+            <div class="box-header with-border">
+              <h3 class="box-title">{{ title }}
+              </h3>
+            </div>
+            <!-- /.box-header -->
+            <!-- form start -->
+            <form class="form-horizontal" method="post">
+              <div class="box-body">
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label class="col-md-5 control-label">Tanggal</label>
+                      <div class="col-md-7 has-feedback">
+                        <input type="text" class="form-control" id="tgl_kas" name="tanggal" value="{{ dmy1.split('-').reverse().join('-') }}" disabled>
+                        <input type="hidden" id="tgl" name="tanggal" value="{{ dmy1.split('-').reverse().join('-') }}">
+                        <span class="fa fa-calendar form-control-feedback"></span>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label for="admin" class="col-md-5 control-label">Nomor Faktur</label>
+                      <div class="col-md-7">
+                        <input type="text" class="form-control" id="faktur" name="faktur" value="{{ noFaktur }}" placeholder="Nomor Faktur">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="keterangan" class="col-md-3 control-label">Keterangan</label>
+                      <div class="col-md-9">
+                        <textarea maxlength="40" type="text" class="form-control" id="ket_jurnal" name="keterangan" placeholder="Keterangan"></textarea>
+                      </div>
+                    </div>
+                  </div>
+                </div><hr>
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <div class="col-md-5">
+                        <select class="from-control select2" style="width: 100%;" id="data_akun" name="akun_perkiraan" data-placeholder="Pilih Akun Perkiraan">
+                          <option></option>
+                          {% for res in results %}
+                          <option value="{{ res.akun_id }}">{{ res.kode_akun }} - {{ res.nama_akun }}</option>
+                          {% endfor %}
+                        </select>
+                      </div><br class="hidden-md hidden-lg">
+                      <div class="col-md-3">
+                        <input type="text" class="form-control text-right" id="debit" name="debit" value="" placeholder="0">
+                      </div><br class="hidden-md hidden-lg">
+                      <div class="col-md-3">
+                        <input type="text" class="form-control text-right" id="kredit" name="kredit" value="" placeholder="0">
+                      </div><br class="hidden-md hidden-lg">
+                      <div class="col-md-1">
+                        <button type="button" class="btn btn-default ok_jurnal pull-right">OK</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="box-body table-responsive">
+                    <table id="tableData" class="table table-bordered table-hover table-striped">
+                      <thead class="bg-primary">
+                      <tr class='hidden-xs'>
+                        <th>No</th>
+                        <th>Kode Akun</th>
+                        <th>Nama Akun</th>
+                        <th></th>
+                        <th></th>
+                        <th>Debit</th>
+                        <th>Kredit</th>
+                        <th></th>
+                      </tr>
+                      </thead>
+                      <tbody>
+                      </tbody>
+                      <tfoot>
+                        <tr>
+                          <th colspan="4" style="text-align:right">Total:</th>
+                          <th></th>
+                          <th id="totalDebit" class="text-right"></th>
+                          <th id="totalKredit" class="text-right"></th>
+                          <th></th>
+                          <th>
+                            <div class="col-md-3">
+                              <div class="box box-primary box-solid">
+                                <div class="box-header with-border">
+                                  <h3 class="box-title">Total</h3>
+                                  <div class="box-tools pull-right">
+                                  </div>
+                                </div>
+                                <div class="box-body">
+                                    <div class="col-xs-6">
+                                      <span>Debit</span>
+                                      <span class="info-box-number" id="totalDebit"></span>
+                                    </div>
+                                    <div class="col-xs-6">
+                                      <span>Kredit</span>
+                                      <span class="info-box-number" id="totalKredit"></span>
+                                    </div>
+                                </div>
+                              </div>
+                            </div>
+                          </th>
+                        </tr>
+                      </tfoot>
+                    </table>
+                  </div>
+                </div>
+              </div>
+              <!-- /.box-body -->
+              <div class="box-footer">
+                <input type="hidden" id="lastUrl" value="{{ urlPost }}">
+                <input type="hidden" id="jUrl" value="{{ urlJson }}">
+                <input type="hidden" id="dUrl" value="{{ urlDel }}">
+                <input type="hidden" name="op" value="submit">
+                <button type="submit" class="btn btn-info pull-right" id="submitJurnal">Submit</button>
+              </div>
+              <!-- /.box-footer -->
+            </form>
+          </div>
+          <!-- /.box -->
+        </div>
+      </div>
+    </section>
+  </div>
+{% endblock %}

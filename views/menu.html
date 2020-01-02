@@ -1,0 +1,155 @@
+
+  <!-- Left side column. contains the logo and sidebar -->
+  <aside class="main-sidebar">
+    <!-- sidebar: style can be found in sidebar.less -->
+    <section class="sidebar">
+      <!-- Sidebar user panel -->
+      <div class="user-panel">
+        <div class="pull-left image">
+          <img src="/img/user-icon2.png" class="img-circle" alt="User Image">
+        </div>
+        <div class="pull-left info">
+          <p>{{sessionUsers.nama_lengkap}}</p>
+          <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+        </div>
+      </div>
+      <!-- /.search form -->
+      <!-- sidebar menu: : style can be found in sidebar.less -->
+      <ul class="sidebar-menu" data-widget="tree">
+        <li class="header">MAIN NAVIGATION</li>
+        <li class="active">
+          <a href="/dashboard">
+            <i class="zmdi zmdi-view-dashboard"></i> <span>Dashboard</span>
+          </a>
+        </li>
+        <li class="header">MASTER</li>
+        <li class="treeview">
+          <a href="#">
+            <i class="zmdi zmdi-accounts-alt"></i>
+            <span>Admin</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="/master/admin/list"><i class="fa fa-circle-o"></i> Daftar Admin</a></li>
+            {% if(sessionUsers.grup_id == 1) %}
+            <li><a href="/master/admin/add"><i class="fa fa-circle-o"></i> Tambah Admin</a></li>
+            {% endif %}
+          </ul>
+        </li>
+        <li class="treeview">
+          <a href="#">
+            <i class="fa fa-files-o"></i>
+            <span>Akuntansi</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="/master/akuntansi/akun"><i class="fa fa-circle-o"></i> Akun Perkiraan</a></li>
+            {% if(sessionUsers.grup_id == 1) %}
+            <li><a href="/master/akuntansi/addakun"><i class="fa fa-circle-o"></i> Tambah Akun Perkiraan</a></li>
+            {% endif %}
+          </ul>
+        </li>
+        <li class="treeview">
+          <a href="#">
+            <i class="zmdi zmdi-male-female"></i>
+            <span>Member</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="/master/member/list"><i class="fa fa-circle-o"></i> Data Member</a></li>
+          </ul>
+        </li>
+        <li class="treeview">
+          <a href="#">
+            <i class="zmdi zmdi-account-box-o"></i>
+            <span>Suplier</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="/master/suplier/list"><i class="fa fa-circle-o"></i> Data Suplier</a></li>
+          </ul>
+        </li>
+        <li class="header">TRANSAKSI</li>
+        <li><a href="/transaksi/kas/KM?dmy1={{ dmy1 }}"><i class="fa fa-circle-o text-red"></i> <span>Kas Masuk</span></a></li>
+        <li><a href="/transaksi/kas/KK?dmy1={{ dmy1 }}"><i class="fa fa-circle-o text-yellow"></i> <span>Kas Keluar</span></a></li>
+        <li><a href="/transaksi/jurnal/JR?dmy1={{ dmy1 }}"><i class="fa fa-circle-o text-aqua"></i> <span>Jurnal</span></a></li>
+        <li><a href="/transaksi/pembelian?dmy1={{ dmy1 }}"><i class="fa fa-circle-o text-purple"></i> <span>Pembelian</span></a></li>
+        <li><a href="/transaksi/pembayaran_hutang_suplier?dmy1={{ dmy1 }}"><i class="fa fa-circle-o text-orange"></i> <span>Pembayaran Hutang VME</span></a></li>
+        <li><a href="/transaksi/deposit?dmy1={{ dmy1 }}"><i class="fa fa-circle-o text-navy"></i> <span>Deposit</span></a></li>
+        <li><a href="/transaksi/pembayaran_hutang?dmy1={{ dmy1 }}"><i class="fa fa-circle-o text-teal"></i> <span>Pembayaran Hutang Deposit</span></a></li>
+        <li><a href="/transaksi/cetak_jurnal?dmy1={{ dmy1 }}"><i class="fa fa-circle-o text-gray"></i> <span>Cetak</span></a></li>
+        <li class="header">LAPORAN</li>
+        <li class="treeview">
+          <a href="#">
+            <i class="fa fa-files-o"></i>
+            <span>Kas</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="/laporan/kas/kas_kecil"><i class="fa fa-circle-o"></i> Kas Kecil</a></li>
+            <li><a href="/laporan/kas/kas_utama"><i class="fa fa-circle-o"></i> Kas Utama</a></li>
+          </ul>
+        </li>
+        <li class="treeview">
+          <a href="#">
+            <i class="fa fa-files-o"></i>
+            <span>Akuntansi</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="/laporan/akuntansi/jurnal"><i class="fa fa-circle-o"></i> Jurnal</a></li>
+            <li><a href="/laporan/akuntansi/bukubesar"><i class="fa fa-circle-o"></i> Buku Besar</a></li>
+            <li class="treeview">
+              <a href="#"><i class="fa fa-circle-o"></i>
+                <span>Neraca</span>
+                <span class="pull-right-container">
+                  <i class="fa fa-angle-left pull-right"></i>
+                </span>
+              </a>
+              <ul class="treeview-menu">
+                <li><a href="/laporan/akuntansi/neraca/harian"><i class="fa fa-circle-o"></i> Harian</a></li>
+                <li><a href="/laporan/akuntansi/neraca/bulanan"><i class="fa fa-circle-o"></i> Bulanan</a></li>
+              </ul>
+            </li>
+            <li class="treeview">
+              <a href="#"><i class="fa fa-circle-o"></i>
+              <span>Laba Rugi</span>
+              <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+              </span>
+            </a>
+              <ul class="treeview-menu">
+                <li><a href="/laporan/akuntansi/labarugi/harian"><i class="fa fa-circle-o"></i> Harian</a></li>
+                <li><a href="/laporan/akuntansi/labarugi/bulanan"><i class="fa fa-circle-o"></i> Bulanan</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li class="treeview">
+          <a href="#">
+            <i class="fa fa-files-o"></i>
+            <span>Suplier</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="/laporan/pembelian/data"><i class="fa fa-circle-o"></i> Data Pembelian</a></li>
+          </ul>
+        </li>
+      </ul>
+    </section>
+    <!-- /.sidebar -->
+  </aside>

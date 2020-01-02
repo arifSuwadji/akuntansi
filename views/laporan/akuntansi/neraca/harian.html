@@ -1,0 +1,125 @@
+{% extends 'header.html' %}
+
+{% block content %}
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <h1>
+        Neraca
+        <small>{{ title }}</small>
+      </h1>
+      <ol class="breadcrumb">
+        <li><a href="javascript:void(0);"><i class="zmdi zmdi-accounts-alt"></i> Laporan</a></li>
+        <li>Akuntansi</li>
+        <li>Neraca</li>
+        <li class="active">{{ title }}</li>
+      </ol>
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+      <!-- Small boxes (Stat box) -->
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="box box-default collapsed-box box-solid">
+            <div class="box-header with-border" data-widget="collapse">
+              <h3 class="box-title">Pencarian</h3>
+              <div class="box-tools pull-right">
+                <button type="button" class="btn btn-box-tool"><i class="fa fa-plus"></i>
+                </button>
+              </div>
+              <!-- /.box-tools -->
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+              <form class="form-horizontal">
+                <div class="box-body">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label class="col-md-5 control-label">Dari Tanggal</label>
+                      <div class="col-md-7 has-feedback">
+                        <input type="text" class="date-picker form-control" id="dmy1" data-date-format="dd/mm/yyyy" data-date="{{ dmy1 }}" value="{{ dmy1 }}" name="dmy1" placeholder="dd/mm/yyyy">
+                        <span class="fa fa-calendar form-control-feedback"></span>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="col-md-5 control-label">Sampai Tanggal</label>
+                      <div class="col-md-7 has-feedback">
+                        <input type="text" class="date-picker form-control" id="dmy2" data-date-format="dd/mm/yyyy" data-date="{{ dmy2 }}" value="{{ dmy2 }}" name="dmy2" placeholder="dd/mm/yyyy">
+                        <span class="fa fa-calendar form-control-feedback"></span>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="col-md-5 control-label"></label>
+                      <div class="col-md-7">
+                        <button type="button" class="btn btn-info" id="cari">Cari</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+            <!-- /.box-body -->
+          </div>
+          <!-- /.box -->
+          <div class="box">
+            <!-- /.box-header -->
+            <div class="box-body table-responsive">
+              <table id="tableDataAktiva" class="table table-bordered table-hover table-striped">
+                <thead class="bg-primary">
+                <tr>
+                  <th class="text-center hidden-xs hidden-sm" colspan="2">Aktiva</th>
+                  <th width="125px;" class="text-center hidden-xs hidden-sm">Saldo Awal</th>
+                  <th width="125px;" class="text-center hidden-xs hidden-sm">Mutasi</th>
+                  <th width="125px;" class="text-center hidden-xs hidden-sm">Saldo Akhir</th>
+                  <th class="text-center hidden-md hidden-lg">Aktiva</th>
+                </tr>
+                </thead>
+                <tbody>
+                </tbody>
+                <tfoot class="bg-olive">
+                  <tr>
+                    <th colspan="2" class="hidden-xs hidden-sm">Total Aktiva</th>
+                    <th class="hidden-xs hidden-sm"><span id="totalAktivaSaldoAwal" class="pull-right">Loading...</span></th>
+                    <th class="hidden-xs hidden-sm"><span id="totalAktivaMutasi" class="pull-right">Loading...</span></th>
+                    <th class="hidden-xs hidden-sm"><span id="totalAktivaSaldoAkhir" class="pull-right">Loading...</span></th>
+                    <th class="hidden-md hidden-lg"><div class="col-md-3"><div class="box bg-olive box-solid"><div class="box-header with-border"><h3 class="box-title text-bold">Total Aktiva</h3><div class="box-tools pull-right"></div> </div><div class="box-body"><h5 class="text-bold">Total Saldo Awal: <span id="totalAktivaSaldoAwal" class="pull-right">Loading...</span></h5><h5 class="text-bold">Total Mutasi: <span id="totalAktivaMutasi" class="pull-right">Loading...</span></h5><h5 class="text-bold">Total Saldo Akhir: <span id="totalAktivaSaldoAkhir" class="pull-right">Loading...</span></h5></div> </div></div></th>
+                  </tr>
+                </tfoot>
+              </table>
+              <table id="tableDataPasiva" class="table table-bordered table-hover table-striped">
+                <thead class="bg-primary">
+                <tr>
+                  <th class="text-center hidden-xs hidden-sm" colspan="2">Pasiva</th>
+                  <th width="125px;" class="text-center hidden-xs hidden-sm">Saldo Awal</th>
+                  <th width="125px;" class="text-center hidden-xs hidden-sm">Mutasi</th>
+                  <th width="125px;" class="text-center hidden-xs hidden-sm">Saldo Akhir</th>
+                  <th class="text-center hidden-md hidden-lg">Pasiva</th>
+                </tr>
+                </thead>
+                <tbody>
+                </tbody>
+                <tfoot class="bg-olive">
+                  <tr>
+                    <th colspan="2" class="hidden-xs hidden-sm">Total Pasiva</th>
+                    <th class="hidden-xs hidden-sm"><span id="totalPasivaSaldoAwal" class="pull-right">Loading...</span></th>
+                    <th class="hidden-xs hidden-sm"><span id="totalPasivaMutasi" class="pull-right">Loading...</span></th>
+                    <th class="hidden-xs hidden-sm"><span id="totalPasivaSaldoAkhir" class="pull-right">Loading...</span></th>
+                    <th class="hidden-md hidden-lg"><div class="col-md-3"><div class="box bg-olive box-solid"><div class="box-header with-border"><h3 class="box-title text-bold">Total Pasiva</h3><div class="box-tools pull-right"></div> </div><div class="box-body"><h5 class="text-bold">Total Saldo Awal: <span id="totalPasivaSaldoAwal" class="pull-right">Loading...</span></h5><h5 class="text-bold">Total Mutasi: <span id="totalPasivaMutasi" class="pull-right">Loading...</span></h5><h5 class="text-bold">Total Saldo Akhir: <span id="totalPasivaSaldoAkhir" class="pull-right">Loading...</span></h5></div> </div></div></th>
+                  </tr>
+                </tfoot>
+              </table>
+            </div>
+            <!-- /.box-body -->
+          </div>
+          <!-- /.box -->
+        </div>
+      </div>
+      <!-- /.row -->
+      <!-- Main row -->
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+{% endblock %}

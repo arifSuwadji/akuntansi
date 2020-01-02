@@ -1,0 +1,47 @@
+{
+  "webui":{
+    "title": "MyHost - Akuntansi",
+    "listen_port": 3509,
+    "session_name": "MyHost-Akuntansi",
+    "session_secret": "k0m0d04kunt4ns1-2o1g-02-25",
+    "version": "1.1.0"
+  },
+  "template_no_cache": true,
+  "mysql":{
+    "host": "localhost",
+    "database": "komodo_akuntansi",
+    "user": "root",
+    "password": "",
+    "selective_max_statement_time": 0
+  },
+  "laporan":{
+    "akun_kas_kecil": 3,
+    "kode_kas_kecil": "1.100.20",
+    "nama_kas_kecil": "Kas Kecil",
+    "akun_kas_utama": 2,
+    "kode_kas_utama": "1.100.10",
+    "nama_kas_utama": "Kas Utama"
+  },
+  "mysql_komodo":{
+    "host": "localhost",
+    "database": "komodo",
+    "user": "root",
+    "password": "",
+    "selective_max_statement_time": 0
+  },
+  "daemon":{
+    "urlMyHost": "http://172.23.27.2:32972/apikey/a9eb075dbf33c77f044733df23204b3ac2f06a80/",
+    "exec_time" : "14:49:33",
+    "mutation_exec_time" : "15:01:02"
+  },
+  "penjualan":{
+    "akun_debit": 37,
+    "akun_kredit": 58,
+    "akun_hpp": 82
+  },
+  "perusahaan":{
+    "nama": "Gudang Pulsa",
+    "pembuat_laporan": "Puspita sari angraeni",
+    "mengetahui": "Muhammad Wawan setiawan"
+  }
+}
